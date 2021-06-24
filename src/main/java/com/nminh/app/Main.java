@@ -7,16 +7,23 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import lombok.Data;
 
 public class Main extends Application {
 
+    public static Scene scene;
+    public static Stage stage;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        AuthController controller=new AuthController();
-        Parent root = loadFXML(AppConstant.AUTHEN_SCREEN,controller);
-        primaryStage.setTitle("EverWing");
-        primaryStage.setScene(new Scene(root));
+        AuthController controller=new AuthController(primaryStage);
+        stage = primaryStage;
+        scene = new Scene(Main.loadFXML(AppConstant.AUTHEN_SCREEN,controller));
+//        Parent root = loadFXML(AppConstant.AUTHEN_SCREEN,controller);
+        primaryStage.setTitle("Money Savings");
+        stage.getIcons().add(new Image(Main.class.getResource("view/logog.png").toString()));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

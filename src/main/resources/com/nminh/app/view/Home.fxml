@@ -8,56 +8,105 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <Pane prefHeight="119.0" prefWidth="540.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="235.0" layoutY="42.0" style="-fx-font-size: 25; -fx-font-weight: bold;" text="Home" />
-         </children>
-      </Pane>
-   </top>
-   <center>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="55.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="82.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="242.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="70.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="243.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="243.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="243.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="257.0" minHeight="10.0" prefHeight="129.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="262.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="387.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <BorderPane.margin>
-            <Insets left="50.0" right="50.0" />
-         </BorderPane.margin>
-         <children>
-            <Label text="URL :" GridPane.columnIndex="1" />
-            <Label text="Số lần :" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtUrl" GridPane.columnIndex="2" />
-            <Button fx:id="btnGo" mnemonicParsing="false" onAction="#onGo" text="Go" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-            <TextField fx:id="txtNumber" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
-               <children>
-                  <Label alignment="TOP_CENTER" text="Tổng số lần làm việc : ">
-                     <HBox.margin>
-                        <Insets top="30.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="lblTotalWorks">
-                     <HBox.margin>
-                        <Insets top="30.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-         </children>
-      </GridPane>
-   </center>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.shape.Circle?>
+<BorderPane prefHeight="600.0" prefWidth="1100.0" stylesheets="@../view/MainScreenStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <!--Slack: <AnchorPane style="-fx-background-color: #2b092b;" BorderPane.alignment="CENTER">-->
+        <!--Outlook: <AnchorPane style="-fx-background-color: #3e78d4;" BorderPane.alignment="CENTER">-->
+        <AnchorPane style="-fx-background-color: #45854a;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="imgView" fitHeight="56.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <HBox layoutX="701.0" layoutY="-10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <GridPane alignment="CENTER">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label fx:id="lblFullName" style="-fx-text-fill: white;" text="Xin chào" GridPane.halignment="RIGHT">
+                                    <font>
+                                        <Font name="System Regular" size="25.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label fx:id="lblInfo" style="-fx-text-fill: white;" text="Label" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                    <GridPane.margin>
+                                        <Insets />
+                                    </GridPane.margin>
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </GridPane>
+                        <MenuButton mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-border-color: transparent;">
+                            <items>
+                                <MenuItem fx:id="menuAccount" mnemonicParsing="false" onAction="#onAccountClick" text="Tài khoản" />
+                                <MenuItem fx:id="menuLogout" mnemonicParsing="false" onAction="#onLogoutClick" text="Đăng xuất" />
+                            </items>
+                            <HBox.margin>
+                                <Insets left="5.0" right="5.0" />
+                            </HBox.margin>
+                            <graphic>
+                                <Circle fx:id="avatar" fill="#ffffff00" radius="27.0" stroke="WHITE" strokeType="INSIDE" />
+                            </graphic>
+                        </MenuButton>
+                    </children>
+                </HBox>
+                <Button alignment="CENTER" contentDisplay="CENTER" layoutY="13.0" mnemonicParsing="false" onAction="#collapse" style="-fx-background-color: transparent; -fx-border-color:transparent;-fx-text-fill:transparent;">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="15.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../view/collapse-menu.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <TabPane fx:id="tabPanelMain" prefHeight="524.0" prefWidth="852.0" styleClass="tab-page-cover" stylesheets="@../view/MainScreenStyle.css" tabClosingPolicy="UNAVAILABLE" />
+    </center>
+    <left>
+        <GridPane fx:id="leftSideBarPane" prefHeight="502.0" prefWidth="248.0" style="-fx-background-color: #f3f2f2;">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="1.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <TreeView fx:id="treeMenu" prefHeight="498.0" prefWidth="248.0" styleClass="treeMenu" BorderPane.alignment="CENTER" />
+                <Label fx:id="lblPercentage" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                    <GridPane.margin>
+                        <Insets />
+                    </GridPane.margin>
+                </Label>
+                <StackPane maxHeight="20.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                    <GridPane.margin>
+                        <Insets />
+                    </GridPane.margin>
+                    <children>
+                        <ProgressBar fx:id="progressBar" maxWidth="1.7976931348623157E308" visible="false">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </ProgressBar>
+                    </children>
+                </StackPane>
+            </children>
+        </GridPane>
+    </left>
 </BorderPane>

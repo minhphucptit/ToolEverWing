@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="629.0" prefWidth="592.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <Pane prefHeight="76.0" prefWidth="826.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="lbTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="-81.0" layoutY="21.0" prefHeight="35.0" prefWidth="754.0" style="-fx-font-size: 24; -fx-font-weight: bold;" text="Chi tiết dự định" />
+            </children>
+        </Pane>
+    </top>
+    <left>
+        <GridPane hgap="10.0" prefHeight="513.0" prefWidth="591.0" vgap="5.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="-Infinity" prefWidth="28.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="109.0" prefWidth="141.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="533.0" minWidth="10.0" prefWidth="368.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="53.0" minWidth="10.0" prefWidth="26.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="90.0" minHeight="70.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label alignment="CENTER_RIGHT" text="Tên dự định*:" GridPane.columnIndex="1" />
+
+                <TextField fx:id="txtName" GridPane.columnIndex="2" />
+
+                <Label fx:id="lbNameErr" style="-fx-font-size: 12" text="Không được để trống" textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                </Label>
+                <Label fx:id="lbQuantityErr" style="-fx-font-size: 12" text="Không được để trống" textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                </Label>
+                <Label alignment="CENTER_RIGHT" text="Số lượng:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label alignment="CENTER_RIGHT" text="Thời gian bắt đầu:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <DatePicker fx:id="dpkCreateAt" prefHeight="31.0" prefWidth="204.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                <Label fx:id="lbCostErr" style="-fx-font-size: 12" text="Không được để trống" textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                </Label>
+                <Button fx:id="btnCreate" mnemonicParsing="false" onAction="#onCreateSpending" prefHeight="25.0" prefWidth="74.0" text="Lưu" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="14">
+                    <GridPane.margin>
+                        <Insets bottom="15.0" />
+                    </GridPane.margin>
+                </Button>
+                <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="202.0" text="Giá:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="347.0" text="Nội dung:" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                <TextArea fx:id="txtContent" layoutX="253.0" layoutY="321.0" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                <Button fx:id="btnUpdate" layoutX="637.0" layoutY="485.0" mnemonicParsing="false" onAction="#onUpdateSpending" prefHeight="25.0" prefWidth="74.0" text="Lưu" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="14">
+                    <GridPane.margin>
+                        <Insets bottom="15.0" />
+                    </GridPane.margin></Button>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                    <children>
+                        <TextField fx:id="txtCost" prefHeight="31.0" prefWidth="206.0" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <children>
+                        <TextField fx:id="txtQuantity" prefHeight="31.0" prefWidth="206.0" />
+                    </children>
+                </HBox>
+                <Label fx:id="lbDateErr" layoutX="203.0" layoutY="54.0" style="-fx-font-size: 12" text="Không được để trống" textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <Label alignment="CENTER_RIGHT" layoutX="48.0" layoutY="247.0" text="Thời gian kết thúc:" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <DatePicker fx:id="dpkFinishAt" layoutX="178.0" layoutY="242.0" prefHeight="31.0" prefWidth="204.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Label fx:id="lbStatus" alignment="CENTER_RIGHT" layoutX="48.0" layoutY="274.0" text="Trạng thái:" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <ComboBox fx:id="cbStatus" prefHeight="31.0" prefWidth="205.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+            </children>
+        </GridPane>
+    </left>
+</BorderPane>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="620.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true">
+            <BorderPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </BorderPane.margin>
+            <content>
+                <TableView fx:id="tbSpending" prefHeight="415.0" prefWidth="1178.0">
+                    <columns>
+                        <TableColumn fx:id="clStt" prefWidth="49.0" text="STT" />
+                        <TableColumn fx:id="clName" prefWidth="255.0" text="Tên chi tiêu" />
+                  <TableColumn fx:id="clType" prefWidth="81.0" text="Loại" />
+                        <TableColumn fx:id="clCategory" prefWidth="125.0" text="Tần suất" />
+                        <TableColumn fx:id="clQuantity" prefWidth="103.0" text="Số lượng" />
+                        <TableColumn fx:id="clCost" prefWidth="210.0" text="Giá" />
+                        <TableColumn fx:id="clDate" prefWidth="126.0" text="Thời gian" />
+                  <TableColumn fx:id="clAction" prefWidth="232.0" text="Lựa chọn" />
+                    </columns>
+                </TableView>
+            </content>
+        </ScrollPane>
+    </center>
+    <bottom>
+        <GridPane prefHeight="89.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#onCreateSpending" text="Thêm chi tiêu" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                    <GridPane.margin>
+                        <Insets top="5.0" />
+                    </GridPane.margin>
+                </Button>
+                <Label fx:id="lbTotalItems" text="Tổng số chi tiêu: 0" />
+                <Pagination fx:id="pnPagination" prefHeight="57.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="2" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </GridPane>
+    </bottom>
+    <top>
+        <GridPane hgap="10.0" prefHeight="126.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="90.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="249.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="10.0" prefWidth="32.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="92.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="267.0" minWidth="10.0" prefWidth="187.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="370.0" minWidth="10.0" prefWidth="185.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="279.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="lbDateFrom" text="Thời gian:" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
+                <Label fx:id="lbTitle" alignment="CENTER" style="-fx-font-size: 24;" text="Quản lý chi tiêu" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER">
+                </Label>
+                <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#onSearch" text="Tìm kiếm" GridPane.columnIndex="6" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                <TextField fx:id="txtName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Tên chi tiêu" GridPane.rowIndex="1" />
+                <Label text="Loại" GridPane.rowIndex="2" />
+                <ComboBox fx:id="cbCategory" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <DatePicker fx:id="dpkEnd" layoutX="453.0" layoutY="50.0" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <children>
+                      <DatePicker fx:id="dpkStart" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </DatePicker>
+                  <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="41.0" prefWidth="39.0" text="--" />
+               </children>
+            </HBox>
+            <Label layoutX="20.0" layoutY="101.0" text="Tần suất" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbType" layoutX="120.0" layoutY="96.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </GridPane>
+    </top>
+</BorderPane>

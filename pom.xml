@@ -31,6 +31,11 @@
             <version>11.0.2</version>
         </dependency>
         <dependency>
+            <groupId>com.konghq</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>3.11.11</version>
+        </dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
             <version>11.0.2</version>
@@ -61,6 +66,7 @@
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+
     </dependencies>
 
     <build>
